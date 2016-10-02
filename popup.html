@@ -3,10 +3,15 @@
     <head>
         <style>
             body { 
-                min-width: 450px; 
+                min-width: 287px; 
                 overflow-x: hidden; 
                 font-family: Arial, sans-serif; 
                 font-size: 12px; 
+            }
+
+            .logo {
+              height: 100px;
+              padding: 10px;
             }
         </style>
         <link rel="stylesheet" type="text/css" href="bootstrap.css">
@@ -14,7 +19,10 @@
     </head>
     <body>
       <div class="container">
-        <h4 style='text-align:center'>Running total</h4>                 
+        <!--<h4 style='text-align:center'>Running total</h4>  -->
+        <div align="center">
+        <img class="logo center" src="cart_with_text.png"/>   
+        </div>            
         <form id="additem" class="form-inline">
             <input class="form-control" type="text" id="title" name="title" value="" placeholder="Name" /></p>
             <form class="form-inline">
@@ -30,7 +38,7 @@
           </div>
           </form>
             <p style="display:None" type="text" id="url" name="url" value="" /></p>
-            <p>
+            <p align-center>
               <!--<select>
               <option value="drone">Drone</option>
               <option value="3dprinter">3D printer</option>
@@ -38,8 +46,8 @@
               <option value="costume">Costume</option>
             </select>-->
                 <button class="btn btn-primary" id="save" type="button">Save Item</button>
-                <button class="btn btn-primary" id="projectView">View All Projects</button>
-                <h1 id="status-display"></h1>
+                <button class="btn btn-info" id="projectView">View All Projects</button>
+                <h1 id="status-display text-center"></h1>
             </p>
         </form>
       </div>
