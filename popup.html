@@ -18,7 +18,8 @@
         <script src="popup.js"></script>
     </head>
     <body>
-        <h4 style='text-align:center'>Running total</h4>
+        <h4 style='text-align:center'>Running total</h4>                 
+        <input id="projectView" type="button" value="Project View"/>
         <form id="additem">
             <p><label for="title">Title</label><br />
             <input type="text" id="title" name="title" size="50" value="" /></p>
@@ -35,7 +36,7 @@
               <option value="computer">Computer</option>
               <option value="costume">Costume</option>
             </select>
-                <input id="save" type="button" value="Save Item" onclick="openTab" />
+                <input id="save" type="submit" value="Save Item"/>
                 <span id="status-display"></span>
             </p>
         </form>
