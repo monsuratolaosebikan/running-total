@@ -58,7 +58,7 @@ function createTable(items) {
         sum+=parseFloat(items[item].price)*parseFloat(items[item].quantity);
     }
     var total = document.getElementById('total');
-    total.innerText = 'Total: $' + sum;
+    total.innerText = 'Total: $' + sum.toFixed(2);
 }
 
 
