@@ -16,7 +16,7 @@ chrome.tabs.query({'active': true}, function (tabs) {
 
     url = tabs[0].url;
     console.log(url);
-    document.getElementById('url').innerText = url;
+    document.getElementById('url').value = url;
     console.log(tabs[0]);
     //var price = getPrice(url);
     document.getElementById('price').value = '';
@@ -45,7 +45,7 @@ function openProjectView() {
 function saveItem() {
   console.log('hello');
         // Get a value saved in a form.
-        var url = document.getElementById('url').innerText;
+        var url = document.getElementById('url').value;
         console.log(url);
         var title = document.getElementById('title').value;
         console.log(title);

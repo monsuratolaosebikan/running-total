@@ -5,7 +5,7 @@ window.onload = function () {
             var keys = Object.keys(items);
             console.log(items);
             console.log(allKeys); 
-            //document.getElementById('stuff').innerText = JSON.stringify(items)            
+            //document.getElementById('stuff').innerText = JSON.stringify(items)   
             createTable(items);
 });
 }
@@ -49,7 +49,7 @@ function createTable(items) {
         table.appendChild(quantity);
         table.appendChild(price);
         //table.appendChild(url);
-        table.appendChild(trashBtn);
+        //table.appendChild(trashBtn);
         trashIcon.addEventListener('click', function(event) {
             var targetElement = event.target;
             removeItem(targetElement);
