@@ -16,7 +16,7 @@ chrome.tabs.query({'active': true}, function (tabs) {
 
     url = tabs[0].url;
     console.log(url);
-    document.getElementById('url').value = url;
+    document.getElementById('url').innerText = url;
     console.log(tabs[0]);
     //var price = getPrice(url);
     document.getElementById('price').value = '';
@@ -45,10 +45,14 @@ function openProjectView() {
 function saveItem() {
   console.log('hello');
         // Get a value saved in a form.
-        var url = document.getElementById('url').value;
+        var url = document.getElementById('url').innerText;
+        console.log(url);
         var title = document.getElementById('title').value;
+        console.log(title);
         var price = document.getElementById('price').value;
+        console.log(price);
         var quantity = document.getElementById('quantity').value;
+        console.log(quantity);
 
         // Check that there's some text there.
         if (!title || !price || !url || !quantity) {
@@ -85,11 +89,12 @@ function saveItem() {
           chrome.storage.sync.get(null, function(items) {
             var allKeys = Object.keys(items);
             console.log(items);
-            document.getElementById('additem').innerHTML = 'Saved!';
+            document.getElementById('additem').innerHTML = '';
+            document.getElementById('status-display').innerHTML = 'Saved!'
             //window.close();
-            /*setTimeout(function(){
+            setTimeout(function(){
                 window.close()
-            },3000);*/
+            },3000);
           });
 
 }

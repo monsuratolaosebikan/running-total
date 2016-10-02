@@ -1,10 +1,18 @@
+var keys = null;
 window.onload = function () {
     chrome.storage.sync.get(null, function(items) {
             var allKeys = Object.keys(items);
-            console.log(items); 
+            var keys = Object.keys(items);
+            console.log(items);
+            console.log(allKeys); 
             //document.getElementById('stuff').innerText = JSON.stringify(items)            
             createTable(items);
 });
+}
+
+function removeItem(el) {
+    console.log('remove');
+    console.log(el);
 }
 
 function createTable(items) {
@@ -17,7 +25,7 @@ function createTable(items) {
         var rowNumber = document.createElement('th');
         rowNumber.innerText = count;
         var title = document.createElement('td');
-        title.innerText = items[item].title;
+        //title.innerText = items[item].title;
         var quantity = document.createElement('td');
         quantity.innerText = items[item].quantity;
         var price = document.createElement('td');
@@ -25,8 +33,10 @@ function createTable(items) {
         var url = document.createElement('td');
         var hyperlink = document.createElement('a');
         hyperlink.setAttribute('href', items[item].url);
-        hyperlink.innerText = items[item].url;
-        url.appendChild(hyperlink);
+        hyperlink.setAttribute('target', '_blank');
+        hyperlink.innerText = items[item].title;
+        //url.appendChild(hyperlink);
+        title.appendChild(hyperlink);
         console.log(url);
         var trashBtn = document.createElement('td');
         var trashIcon = document.createElement('i');
@@ -38,8 +48,12 @@ function createTable(items) {
         table.appendChild(title);
         table.appendChild(quantity);
         table.appendChild(price);
-        table.appendChild(url);
+        //table.appendChild(url);
         table.appendChild(trashBtn);
+        trashIcon.addEventListener('click', function(event) {
+            var targetElement = event.target;
+            removeItem(targetElement);
+        });
         count++;
         sum+=parseFloat(items[item].price)*parseFloat(items[item].quantity);
     }
